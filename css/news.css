@@ -1,0 +1,120 @@
+.page-selector {
+	text-align: center;
+}
+
+.page-selector:nth-of-type(1){
+	padding-bottom: 10px;
+}
+
+.page-selector:nth-of-type(2){
+	padding-top: 10px;
+}
+
+.page-selector a{
+	color: white;
+	background-color: #192A3E;
+	padding: 3px 8px;
+	margin: 0 10px;
+}
+
+.page-selector a:hover, .page-selector a:focus {
+	text-decoration: none;
+	background-color: #3a6392;
+}
+
+.page-selector a[disabled]{
+	pointer-events: none;
+	background-color: 
+}
+
+.page-selector input[type=number]{
+	width: 30px;
+	text-align: center;
+}
+
+.page-selector input[type=number]::-webkit-inner-spin-button, 
+.page-selector input[type=number]::-webkit-outer-spin-button { 
+	-webkit-appearance: none; 
+	margin: 0; 
+}
+
+.page-selector input[type=submit]{
+	position: absolute;
+	visibility: hidden;
+}
+
+.article {
+	padding: 15px 0;
+}
+
+.article {
+	position: relative;
+	background-color: #DDDDDD;
+	cursor: pointer;
+	-webkit-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.article:hover {
+	-webkit-filter: brightness(80%);
+	filter: brightness(80%);
+}
+
+.article .col-sm-3 {
+	text-align: center;
+}
+
+.article img {
+	text-align: center;
+	background-color: #3a6392;
+	padding: 4px;
+	max-width: 100%;
+	max-height: 200px;
+}
+
+.article .content {
+	max-height: 200px;
+	overflow: hidden;
+}
+
+.article .content:after {
+    position: absolute;
+    content:"";
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    background: linear-gradient(to bottom, rgba(221, 221, 221, 0) 0%, rgba(221, 221, 221, 0) 50%, rgba(221, 221, 221, 1) 100%);
+}
+
+.article .content.hover:after {
+	background: none;
+}
+
+html[data-useragent*='MSIE'] .article:hover {
+	background-color: #999;
+}
+
+.news a:link, .news a:visited, .news a:active {
+	color: rgb(25, 42, 62);
+	text-decoration: none;
+}
+
+.article h3, .article h5 {
+	margin-right: 10px;;
+	display: inline;
+}
+
+@media (max-width: 767px){
+	.article  div[class^="col-"]{
+		padding-top: 15px;
+	}
+	
+	.article img, .article .content {
+		max-height: 250px;
+	}
+	
+	.article {
+		text-align: center;
+	}
+}

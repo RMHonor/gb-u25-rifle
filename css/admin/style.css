@@ -1,0 +1,7 @@
+div[class^="col-sm-"] {
+	padding: 20px;
+}
+
+.mce-path {
+    display: none !important;
+}

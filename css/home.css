@@ -1,0 +1,50 @@
+.welcome-img {
+	padding: 0;
+}
+
+.welcome-img img{
+	width: 100%;
+	background-color: #3a6392;
+	padding: 5px;
+}
+
+.lh-col {
+	padding-right: 5px;
+}
+
+.rh-col {
+	padding-left: 5px;
+}
+
+.rh-col * {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+	text-align: center;
+}
+
+/* mobile devices */
+
+@media (max-width: 767px){
+	.lh-col, .rh-col {
+		padding: 0 5px;
+	}
+	
+	.welcome-img {
+		text-align: center;
+	}
+	
+	.welcome-img img {
+		text-align: center;
+		width: 50%;
+	}
+}
+
+/* very small devices */
+
+@media (max-width: 500px){
+	.welcome-img img {
+		width: 70%;
+	}
+}

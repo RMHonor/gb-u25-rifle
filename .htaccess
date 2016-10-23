@@ -1,0 +1,23 @@
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{HTTPS} !on
+RewriteRule ^admin* https://%{HTTP_HOST}%{REQUEST_URI}
+
+RewriteRule ^/?$ /view/index.php [NC,L]
+RewriteRule ^team/?$ /view/team.php [NC,L]
+RewriteRule ^news/?$ /view/news.php [NC,L]
+RewriteRule ^history/?$ /view/history.php [NC,L]
+RewriteRule ^news/([0-9]+)/?$ /view/article.php?id=$1 [NC,L]
+
+RewriteRule ^admin/?$ /admin/admin.php [NC,L]
+RewriteRule ^admin/login/?$ /admin/login.php [NC,L]
+RewriteRule ^admin/news/?$ /admin/news.php [NC,L]
+RewriteRule ^admin/history/?$ /admin/history.php [NC,L]
+RewriteRule ^admin/team/?$ /admin/team.php [NC,L]
+RewriteRule ^admin/team/new/?$ /admin/team-new.php [NC,L]
+RewriteRule ^admin/misc/?$ /admin/misc.php [NC,L]
+
+</IfModule>
