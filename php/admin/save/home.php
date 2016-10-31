@@ -18,22 +18,23 @@
 		destroy(500, false);
 	}
 		
-	update('welcome-heading', $_POST['welcome-sub']);
-	update('captain-img', $_POST['captain-img']);
-	update('welcome', $_POST['welcome']);
-	update('home-updates', $_POST['updates']);
-	update('sponsorship', $_POST['sponsorship']);
+	update('welcome-heading', urlencode($_POST['welcome-sub']));
+	update('captain-img', urlencode($_POST['captain-img']));
+	update('welcome-content', urlencode($_POST['welcome']));
+	update('home-updates', urlencode($_POST['updates']));
+	update('sponsorship', urlencode($_POST['sponsorship']));
 	
 	
 	function update($section, $newContent){
 		global $conn;
-		
-		$qry = "UPDATE content SET content='$newContent' WHERE section='$section'";
+
+		$qry = "UPDATE content SET content=\"$newContent\" WHERE section='$section'";
+		$res = $qry;
 		$qry = $conn->query($qry);
-		if ($qry){
-			destroy(200, false);
-		} else {
-			destroy(401, true);
+		if (!$qry){
+			echo $res;
+			echo mysqli_error($conn);
+			destroy(400, true);
 		}
 	}
 	

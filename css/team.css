@@ -3,6 +3,7 @@ h2, h3 {
 }
 
 [class^="col-"] {
+	float: left !important;
 	padding: 0;
 }
 

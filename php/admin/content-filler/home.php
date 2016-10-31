@@ -11,7 +11,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo $row['content'];
+			echo urldecode($row['content']);
 		}
 	}
 	
@@ -22,7 +22,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo $row['content'];
+			echo urldecode($row['content']);
 		}
 	}
 	
@@ -33,7 +33,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo $row['content'];
+			echo urldecode($row['content']);
 		}
 	}
 		
@@ -44,7 +44,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo "<p>" . $row['content'] . "</p>";
+			echo "<p>" . urldecode($row['content']) . "</p>";
 		}
 	}
 	
@@ -55,7 +55,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo $row['content'];
+			echo urldecode($row['content']);
 		}
 	}
 ?>

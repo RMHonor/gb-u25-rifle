@@ -17,27 +17,27 @@ p {
 /* side background images */
 
 .container:before, .container:after {
-		display: block;
-		position: absolute;
-		content: " ";
-		top: 0;
-		width: 500px;
-		height: 100%;
-		opacity: 0.25;
-		border-right: 20px solid #F4F4F4;
-		border-left: 20px solid #F4F4F4;
-	}
+	display: block;
+	position: absolute;
+	content: " ";
+	top: 0;
+	width: 500px;
+	height: 100%;
+	opacity: 0.25;
+	border-right: 20px solid #F4F4F4;
+	border-left: 20px solid #F4F4F4;
+}
 
-	.container:before {
-		left: -500px;
-		background-image: url("/img/flag-bg-l.png");
-		background-position: right top;
-	}
+.container:before {
+	left: -500px;
+	background-image: url("/img/flag-bg-l.png");
+	background-position: right top;
+}
 
-	.container:after {
-		right: -500px;
-		background-image: url("/img/flag-bg-r.png");
-	}
+.container:after {
+	right: -500px;
+	background-image: url("/img/flag-bg-r.png");
+}
 
 .row {
 	margin: 0;

@@ -2,22 +2,20 @@ $("#save").click(function(e){
 	var $fields = $('.member'),
 		json = [];
 	
-	$fields.each( function(){
+	$fields.each( function(i){
 		json.push({ 
-			"pos"   : $(this).find('.pos').val(),
-			"name"  : $(this).find('.name').val(),
-			"title" : $(this).find('.title').val(),
-			"bio"   : $(this).find('.bio').val(),
-			"img"   : encodeURIComponent($(this).find('.img').val())
+			pos   : $(this).find('.pos').val().replace("'","''"),
+			name  : $(this).find('.name').val().replace("'","''"),
+			title : $(this).find('.title').val().replace("'","''"),
+			bio   : tinyMCE.editors[i].getContent().replace("'","''"),
+			img   : $(this).find('.img').val().replace("'","''")
 		});
 	});
-	
-	console.log(JSON.stringify(json));
-	
+
 	$.ajax({
 		type: "POST",
 		url: "/php/admin/save/team.php",
-		data: "json=" + JSON.stringify(json),
+		data: "json=" + decodeHtml(JSON.stringify(json)) + "&type=team",
 		statusCode: {
 			200: function(){
 				alert("Team updated successfully");
@@ -43,20 +41,19 @@ $("#save").click(function(e){
 $("#save-new").click(function(e){
 	var $fields = $('.member'),
 		json = [{
-			"name"  : $('.name').val(),
-			"title" : $('.title').val(),
-			"bio"   : tinyMCE.get('bio').getContent(),
-			"img"   : encodeURIComponent($('.img').val())
+			"name"  : $('.name').val().replace("'","''"),
+			"title" : $('.title').val().replace("'","''"),
+			"bio"   : tinyMCE.get('bio').getContent().replace("'","''"),
+			"img"   : encodeURIComponent($('.img').val().replace("'","''"))
 		}];
-	console.log(JSON.stringify(json));
 	$.ajax({
 		type: "POST",
 		url: "/php/admin/save/team.php",
-		data: "json=" + JSON.stringify(json),
+		data: "json=" + decodeHtml(JSON.stringify(json)) + "&type=single",
 		statusCode: {
 			200: function(){
 				alert("Team member added successfully");
-				//window.location.replace('/admin/team');
+				window.location.replace('/admin/team');
 			},
 			400: function(){
 				alert("Content save failed");
@@ -73,7 +70,11 @@ $("#save-new").click(function(e){
 				alert("Content save failed");
 			}
 		}
-	}).done(function(content){
-		console.log(content);
 	});
 });
+
+function decodeHtml(html) {
+    var txt = document.createElement("textarea");
+    txt.innerHTML = html;
+    return txt.value;
+}

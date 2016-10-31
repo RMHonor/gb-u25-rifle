@@ -14,10 +14,10 @@
 				$row = $qry->fetch_assoc();
 				echo "<div class=\"member\">";
 					echo "<p>Index: <input class=\"pos\" type=\"number\" value=\"" . $i . "\"/>";
-					echo "Name: <input class=\"name\" type=\"text\" value=\"" . $row['name'] . "\"/>";
-					echo "Title: <input class=\"title\" type=\"text\" value=\"" . $row['title'] . "\"/>";
-					echo "Image link: <input class=\"img\" type=\"text\" value=\"" . $row['img'] . "\"/><br>";
-					echo "Bio: <textarea class=\"bio\">" . $row['bio'] . "</textarea></p>";
+					echo "Name: <input class=\"name\" type=\"text\" value=\"" . urldecode($row['name']) . "\"/>";
+					echo "Title: <input class=\"title\" type=\"text\" value=\"" . urldecode($row['title']) . "\"/>";
+					echo "Image link: <input class=\"img\" type=\"text\" value=\"" . urldecode($row['img']) . "\"/><br>";
+					echo "Bio: <textarea class=\"bio\">" . urldecode($row['bio']) . "</textarea></p>";
 				echo "</div>";
 			}
 		}

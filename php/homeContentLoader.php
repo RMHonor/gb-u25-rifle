@@ -12,7 +12,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo $row['content'];
+			echo urldecode($row['content']);
 		}
 	}
 	
@@ -23,7 +23,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo $row['content'];
+			echo urldecode($row['content']);
 		}
 	}
 	
@@ -34,14 +34,14 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo "<h3>" . $row['content'] . "</h3>";
+			echo "<h3>" . urldecode($row['content']) . "</h3>";
 		}
 		
 		$qry = "SELECT content FROM content WHERE section = 'welcome-content'";
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo "<p>" . $row['content'] . "</p>";
+			echo "<p>" . urldecode($row['content']) . "</p>";
 		}
 	}
 	
@@ -52,7 +52,7 @@
 		$qry = $conn->query($qry);
 		if ($qry->num_rows > 0){ 
 			$row = $qry->fetch_assoc();
-			echo "<img src=\"" . $row['content'] . "\"/>";
+			echo "<img src=\"" . urldecode($row['content']) . "\"/>";
 		}
 	}
 ?>

@@ -22,14 +22,14 @@
 	
 	
 	function loadTeamTiles($members){		
-		echo "<div class=\"row\">";
+		echo "<div class = \"row\">";
 		for ($i = 0; $i < count($members); $i++){
 			$member = $members[$i];
 			echo "<div class=\"col-md-2 col-sm-3 col-xs-6 team-tile\">";
 				echo "<div id=\"member-$i\">";
-					echo "<img src=\"" . $member['img'] . "\">";
-					echo "<h3>" . $member['name'] . "</h3>";
-					echo $member['title'];
+					echo "<img src=\"" . urldecode($member['img']) . "\">";
+					echo "<h3>" . urldecode($member['name']) . "</h3>";
+					echo urldecode($member['title']);
 				echo "</div>";
 			echo "</div>";
 		}
@@ -44,13 +44,13 @@
 						$member = $members[$i];
 						echo "<div class=\"col-sm-5\">";
 							echo "<div class=\"img-holder\">";
-								echo "<img class=\"center-block\" src=\"" . $member['img'] . "\">";
+								echo "<img class=\"center-block\" src=\"" . urldecode($member['img']) . "\">";
 							echo "</div>";
 						echo "</div>";
 						echo "<div class=\"col-sm-7 bio\">";
-							echo "<h2>" . $member['name'] . "</h3>";
-							echo "<h3>" . $member['title'] . "</h4>";
-							echo "<p>" . $member['bio'] . "</p>";
+							echo "<h2>" . urldecode($member['name']) . "</h3>";
+							echo "<h3>" . urldecode($member['title']) . "</h4>";
+							echo "<p>" . urldecode($member['bio']) . "</p>";
 						echo "</div>";
 					echo "</div>";
 					echo "<span class=\"close\">Close</span>";
