@@ -27,9 +27,12 @@
 			$member = $members[$i];
 			echo "<div class=\"col-md-2 col-sm-3 col-xs-6 team-tile\">";
 				echo "<div id=\"member-$i\">";
-					echo "<img src=\"" . urldecode($member['img']) . "\">";
-					echo "<h3>" . urldecode($member['name']) . "</h3>";
+					echo "<div class=\"img\" style=\"background-image: url(" . urldecode($member['img']) . ")\"></div>";
+					// echo "<img src=\"" . urldecode($member['img']) . "\">";
 					echo urldecode($member['title']);
+					echo "<div class=\"member-header\">";
+						echo "<h3>" . urldecode($member['name']) . "</h3>";
+					echo "</div>";
 				echo "</div>";
 			echo "</div>";
 		}

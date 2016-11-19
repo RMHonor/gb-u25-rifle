@@ -18,7 +18,6 @@
 			endSession();
 		}
 	} else {
-		echo "test";
 		endSession();
 	}
 	

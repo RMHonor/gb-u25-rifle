@@ -58,12 +58,15 @@
 			
 				<!-- Captain welcome -->
 				<div class="welcome-container row content-holder">
-					<div class="welcome-text col-sm-9 text-padding">
+					<div class="welcome-text text-padding">
+						<div class="welcome-img-d">
+							<?php loadCapImg(); ?>
+						</div>
 						<h2>Welcome</h2>
 						<?php loadWelcome(); ?>
-					</div>
-					<div class="welcome-img col-sm-3">
-						<?php loadCapImg(); ?>
+						<div class="welcome-img-m">
+							<?php loadCapImg(); ?>
+						</div>
 					</div>
 				</div>
 				

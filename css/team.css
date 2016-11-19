@@ -29,6 +29,18 @@ h2, h3 {
 	background-color: #999;
 }
 
+.team-tile .img {
+	background-size: cover;
+	background-position: 50% 50%;
+	overflow: hidden;
+	width: 100%;
+	padding-bottom: 100%;
+}
+
+.member-header {
+	height: 50px;
+}
+
 .team-tile img {
 	width: 99%;
 }
@@ -59,8 +71,8 @@ h2, h3 {
 }
 
 .img-holder {
-	margin-left: auto;
-	margin-right: auto;
+	margin: auto;
+	padding-right: 20px;
 }
 
 .img-holder img{
@@ -89,9 +101,23 @@ h2, h3 {
     cursor: pointer;
 }
 
-/*@media (max-width: 991px){
-	
-}*/
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display:         flex;
+  flex-wrap: wrap;
+}
+.row > [class*='col-'] {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 991px){
+	.img-holder {
+		padding-right: 0;
+	}	
+}
 
 @media (max-width: 767px){
 	.modal-content {

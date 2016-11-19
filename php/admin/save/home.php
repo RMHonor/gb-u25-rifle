@@ -18,11 +18,11 @@
 		destroy(500, false);
 	}
 		
-	update('welcome-heading', urlencode($_POST['welcome-sub']));
-	update('captain-img', urlencode($_POST['captain-img']));
-	update('welcome-content', urlencode($_POST['welcome']));
-	update('home-updates', urlencode($_POST['updates']));
-	update('sponsorship', urlencode($_POST['sponsorship']));
+	update('welcome-heading', urldecode($_POST['welcome-sub']));
+	update('captain-img', urldecode($_POST['captain-img']));
+	update('welcome-content', urldecode($_POST['welcome']));
+	update('home-updates', urldecode($_POST['updates']));
+	update('sponsorship', urldecode($_POST['sponsorship']));
 	
 	
 	function update($section, $newContent){

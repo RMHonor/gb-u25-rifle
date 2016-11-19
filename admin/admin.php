@@ -37,11 +37,11 @@
 	<div id="container-fluid">
 		<div class="row">
 			<div class="col-sm-2">
-				<a href="#">Home</a>
-				<a href="/admin/team">Team</a>
-				<a href="/admin/news">News</a>
-				<a href="/admin/history">History</a>
-				<a href="/admin/misc">Misc.</a>
+				<a href="#">Home</a><br>
+				<a href="/admin/team">Team</a><br>
+				<a href="#">News</a><br>
+				<a href="#">History</a><br>
+				<a href="#">Misc.</a><br>
 				<a href="/php/admin/logout.php">Logout</a>
 			</div>
 			<div class="col-sm-10">

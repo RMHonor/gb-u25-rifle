@@ -1,8 +1,16 @@
-.welcome-img {
-	padding: 0;
+.welcome-img-d {
+	width: 25%;
+	float: right;
+	padding-left: 10px;
+	padding-bottom: 5px;
 }
 
-.welcome-img img{
+.welcome-img-m {
+	display: none;
+}
+
+.welcome-text img{
+	float: left;
 	width: 100%;
 	background-color: #3a6392;
 	padding: 5px;
@@ -30,14 +38,19 @@
 	.lh-col, .rh-col {
 		padding: 0 5px;
 	}
-	
-	.welcome-img {
+
+	.welcome-text {
 		text-align: center;
+		margin: 0 auto;
 	}
 	
-	.welcome-img img {
-		text-align: center;
+	.welcome-img-d {
+		display: none;
+	}
+
+	.welcome-img-m {
 		width: 50%;
+		display: inline-block;
 	}
 }
 

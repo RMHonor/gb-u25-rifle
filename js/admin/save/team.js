@@ -4,11 +4,11 @@ $("#save").click(function(e){
 	
 	$fields.each( function(i){
 		json.push({ 
-			pos   : $(this).find('.pos').val().replace("'","''"),
-			name  : $(this).find('.name').val().replace("'","''"),
-			title : $(this).find('.title').val().replace("'","''"),
-			bio   : tinyMCE.editors[i].getContent().replace("'","''"),
-			img   : $(this).find('.img').val().replace("'","''")
+			pos   : encodeURIComponent($(this).find('.pos').val()),
+			name  : encodeURIComponent($(this).find('.name').val()),
+			title : encodeURIComponent($(this).find('.title').val()),
+			bio   : encodeURIComponent(tinyMCE.editors[i].getContent()),
+			img   : encodeURIComponent($(this).find('.img').val())
 		});
 	});
 
@@ -28,6 +28,9 @@ $("#save").click(function(e){
 			},
 			500: function(){
 				alert("Content save failed");
+			},
+			501: function(){
+				alert("Server encountered error inserting data so reverted. Please try reformatting data");
 			}
 		},
 		error: function(a, status, b){
@@ -41,10 +44,10 @@ $("#save").click(function(e){
 $("#save-new").click(function(e){
 	var $fields = $('.member'),
 		json = [{
-			"name"  : $('.name').val().replace("'","''"),
-			"title" : $('.title').val().replace("'","''"),
-			"bio"   : tinyMCE.get('bio').getContent().replace("'","''"),
-			"img"   : encodeURIComponent($('.img').val().replace("'","''"))
+			"name"  : encodeURIComponent($('.name').val()),
+			"title" : encodeURIComponent($('.title').val()),
+			"bio"   : encodeURIComponent(tinyMCE.get('bio').getContent()),
+			"img"   : encodeURIComponent($('.img').val())
 		}];
 	$.ajax({
 		type: "POST",
