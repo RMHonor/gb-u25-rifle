@@ -76,6 +76,40 @@ $("#save-new").click(function(e){
 	});
 });
 
+$(".delete").click(function(e){
+	var id = $(this).parent().attr("id"),
+		name = $(this).parent().find(".name").val();
+	if (confirm("Do you really want to delete " + name + "?")){
+		$.ajax({
+			type: "DELETE",
+			url: "/php/admin/delete/team.php",
+			data: JSON.stringify({"id": id}),
+			dataType: "json",
+			contentType: "application/json; charset=utf-8",
+			statusCode: {
+				200: function(){
+					alert("Team member deleted successfully");
+					location.reload();
+				},
+				400: function(){
+					alert("Delete failed");
+				},
+				401: function(){
+					alert("Delete failed");
+				},
+				500: function(){
+					alert("Delete failed");
+				}
+			},
+			error: function(a, status, b){
+				if (status == "timeout"){
+					alert("Delete failed");
+				}
+			}
+		});
+	}
+});
+
 function decodeHtml(html) {
     var txt = document.createElement("textarea");
     txt.innerHTML = html;

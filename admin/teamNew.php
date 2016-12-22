@@ -23,6 +23,7 @@
 	<!-- Custom CSS -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' defer>
 	<link href="/css/admin/style.css" rel="stylesheet" type="text/css" defer>
+	<link href="/css/admin/team.css" rel="stylesheet" type="text/css" defer>
 	
 	<!-- jQuery -->
 	<script type="text/javascript" src="/js/jquery-3.0.0.min.js" defer></script>
@@ -45,12 +46,13 @@
 			</div>
 			<div class="col-sm-10">
 				<h2>Create new team member</h2>
-				<p>
+				<div class="member">
 					Name: <input class="name" type="text"/>
 					Title: <input class="title" type="text"/>
 					Image link: <input class="img" type="text"/><br>
-					Bio: <textarea class="editor" id="bio"></textarea></p>
-				<button class="btn btn-primary" id="save-new">Create</button>
+					Bio: <textarea class="editor" id="bio"></textarea>
+					<button class="btn btn-primary" id="save-new">Create</button>
+				</div>
 			</div>
 		</div>
 	</div>

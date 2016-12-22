@@ -12,12 +12,13 @@
 		if ($qry->num_rows > 0){ 
 			for ($i = 1; $i <= $qry->num_rows; $i++){
 				$row = $qry->fetch_assoc();
-				echo "<div class=\"member\">";
-					echo "<p>Index: <input class=\"pos\" type=\"number\" value=\"" . $i . "\"/>";
+				echo "<div class=\"member\" id=\"" . $row['id'] ."\">";
+					echo "Index: <input class=\"pos\" type=\"number\" value=\"" . $i . "\"/>";
 					echo "Name: <input class=\"name\" type=\"text\" value=\"" . urldecode($row['name']) . "\"/>";
 					echo "Title: <input class=\"title\" type=\"text\" value=\"" . urldecode($row['title']) . "\"/>";
-					echo "Image link: <input class=\"img\" type=\"text\" value=\"" . urldecode($row['img']) . "\"/><br>";
-					echo "Bio: <textarea class=\"bio\">" . urldecode($row['bio']) . "</textarea></p>";
+					echo "Image link: <input class=\"img\" type=\"text\" value=\"" . urldecode($row['img']) . "\"/>";
+					echo "<span class=\"delete glyphicon glyphicon-remove\" aria-hidden=\"true\"></span><br>";
+					echo "Bio: <textarea class=\"bio\">" . urldecode($row['bio']) . "</textarea>";
 				echo "</div>";
 			}
 		}

@@ -24,6 +24,7 @@
 	<!-- Custom CSS -->
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' defer>
 	<link href="/css/admin/style.css" rel="stylesheet" type="text/css" defer>
+	<link href="/css/admin/team.css" rel="stylesheet" type="text/css" defer>
 	
 	<!-- jQuery -->
 	<script type="text/javascript" src="/js/jquery-3.0.0.min.js" defer></script>
@@ -46,10 +47,16 @@
 			</div>
 			<div class="col-sm-10">
 				<h2>Team Control</h2>
-				<a href='/admin/team/new'><button class="btn btn-primary" id="new">Create new member</button></a>
+				<div>
+					<a href='/admin/team/new'>
+						<button class="btn btn-primary" id="new">Create new member</button>
+					</a>
+				</div>
 				<?php loadTeam(); ?>
 				
-				<button class="btn btn-primary" id="save">Save</button>
+				<div>
+					<button class="btn btn-primary" id="save">Save</button>
+				</div>
 			</div>
 		</div>
 	</div>
