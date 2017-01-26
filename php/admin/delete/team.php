@@ -1,4 +1,5 @@
 <?php
+	include_once($_SERVER['DOCUMENT_ROOT'] . '/php/admin/sessionCheck.php');
 
 	$request_vars = array();
 	if (!isset($_SERVER['REQUEST_METHOD']) && !($_SERVER['REQUEST_METHOD']) != 'DELETE'){

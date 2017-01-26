@@ -53,10 +53,6 @@
 					</a>
 				</div>
 				<?php loadTeam(); ?>
-				
-				<div>
-					<button class="btn btn-primary" id="save">Save</button>
-				</div>
 			</div>
 		</div>
 	</div>

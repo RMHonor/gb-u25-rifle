@@ -84,11 +84,12 @@ p {
 }
 
 .navbar .navbar-nav {
-  display: table;
-  table-layout: fixed;
-  float: none;
-  width: 100%;
-  vertical-align: top;
+  	display: table;
+  	table-layout: fixed;
+  	float: none;
+  	width: 100%;
+  	vertical-align: top;
+  	box-shadow: 5px 5px 5px rgba(0,0,0,0.3);
 }
 
 .navbar #navbar {
@@ -100,6 +101,10 @@ p {
 	display: table-cell;
 	width: 25%;
 	float: none;
+}
+
+.navbar li.active {
+	box-shadow: 5px 8px 5px rgba(0,0,0,0.3);
 }
 
 .navbar a {
@@ -141,6 +146,7 @@ p {
 }
 
 .content-holder {
+	box-shadow: 0 5px 10px rgba(0,0,0,0.4);
 	background-color: #DDDDDD;
 	color: #192A3E;
 	width: 100%;

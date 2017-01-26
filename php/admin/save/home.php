@@ -1,4 +1,6 @@
 <?php
+	include_once($_SERVER['DOCUMENT_ROOT'] . '/php/admin/sessionCheck.php');
+
 	if (!isset(
 			$_POST['welcome-sub'], 
 			$_POST['captain-img'], 
