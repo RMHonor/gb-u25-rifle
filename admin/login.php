@@ -28,9 +28,9 @@
 		<noscript>The admin panel requires JavaScript to be enabled, please enable JavaScript or switch to a compatible browser</noscript>
 		<form id="login" action="" method="post" style="display: none">
 			<input type="text" name="user" placeholder="Username"/>
-			<span><input type="password" name="pass" placeholder="Password"/>
+			<input type="password" name="pass" placeholder="Password"/>
 			<button type="submit" class="btn btn-primary" disabled>Login</button>
 		</form>
 	</div>
 </body>
-<html>
+</html>

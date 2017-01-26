@@ -1,5 +1,24 @@
 <?php
 	include_once($_SERVER['DOCUMENT_ROOT'] . '/php/admin/sessionCheck.php');
+	
+	if (!isset($_GET['id'])){
+		header("Location: /admin/team");
+		exit();
+	}
+	
+	include_once($_SERVER['DOCUMENT_ROOT'] . "/../conf/dbauth.php");
+
+	$conn = mysqli_connect($host, $username, $password, $database);
+	
+	$qry = "SELECT * FROM members WHERE id=" . $_GET['id'];
+	$qry = $conn->query($qry);
+	
+	if ($qry->num_rows == 0){
+		header("Location: /admin/team");
+		exit();
+	}
+	
+	$row = $qry->fetch_assoc();
 ?>
 
 <!DOCTYPE html>
@@ -45,13 +64,13 @@
 				<a href="/php/admin/logout.php">Logout</a>
 			</div>
 			<div class="col-sm-10">
-				<h2>Create new team member</h2>
-				<div class="member">
-					Name: <input class="name" type="text">
-					Title: <input class="title" type="text"/>
-					Image link: <input class="img" type="text"/><br>
-					Bio: <textarea class="editor" id="bio"></textarea>
-					<button class="btn btn-primary" id="save-new">Create</button>
+				<h2>Edit team member</h2>
+				<div class="member" id="<?php echo $row['id'] ?>">
+					Name: <input class="name" type="text" value="<?php echo $row['name'] ?>"/>
+					Title: <input class="title" type="text" value="<?php echo $row['title'] ?>"/>
+					Image link: <input class="img" type="text" value="<?php echo $row['img'] ?>"/><br>
+					Bio: <textarea class="editor" id="bio"><?php echo $row['bio'] ?></textarea>
+					<button class="btn btn-primary" id="save">Save</button>
 				</div>
 			</div>
 		</div>

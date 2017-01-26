@@ -1,24 +1,20 @@
 $("#save").click(function(e){
-	var $fields = $('.member'),
-		json = [];
-	
-	$fields.each( function(i){
-		json.push({ 
-			pos   : encodeURIComponent($(this).find('.pos').val()),
-			name  : encodeURIComponent($(this).find('.name').val()),
-			title : encodeURIComponent($(this).find('.title').val()),
-			bio   : encodeURIComponent(tinyMCE.editors[i].getContent()),
-			img   : encodeURIComponent($(this).find('.img').val())
-		});
-	});
+	var json = [{
+			"name"  : encodeURIComponent($('.name').val()),
+			"title" : encodeURIComponent($('.title').val()),
+			"bio"   : encodeURIComponent(tinyMCE.get('bio').getContent()),
+			"img"   : encodeURIComponent($('.img').val()),
+			"id"    : $(this).parent().attr("id")
+		}];
 
 	$.ajax({
 		type: "POST",
 		url: "/php/admin/save/team.php",
-		data: "json=" + decodeHtml(JSON.stringify(json)) + "&type=team",
+		data: "json=" + decodeHtml(JSON.stringify(json)) + "&type=edit",
 		statusCode: {
 			200: function(){
-				alert("Team updated successfully");
+				alert("Team member saved");
+				window.location.replace("/admin/team")
 			},
 			400: function(){
 				alert("Content save failed");
@@ -42,8 +38,7 @@ $("#save").click(function(e){
 });
 
 $("#save-new").click(function(e){
-	var $fields = $('.member'),
-		json = [{
+	var json = [{
 			"name"  : encodeURIComponent($('.name').val()),
 			"title" : encodeURIComponent($('.title').val()),
 			"bio"   : encodeURIComponent(tinyMCE.get('bio').getContent()),
@@ -52,7 +47,7 @@ $("#save-new").click(function(e){
 	$.ajax({
 		type: "POST",
 		url: "/php/admin/save/team.php",
-		data: "json=" + decodeHtml(JSON.stringify(json)) + "&type=single",
+		data: "json=" + decodeHtml(JSON.stringify(json)) + "&type=new",
 		statusCode: {
 			200: function(){
 				alert("Team member added successfully");
@@ -77,7 +72,7 @@ $("#save-new").click(function(e){
 });
 
 $(".delete").click(function(e){
-	var id = $(this).parent().attr("id"),
+	var id = $(this).parent().parent().attr("id"),
 		name = $(this).parent().find(".name").val();
 	if (confirm("Do you really want to delete " + name + "?")){
 		$.ajax({
@@ -89,7 +84,7 @@ $(".delete").click(function(e){
 			statusCode: {
 				200: function(){
 					alert("Team member deleted successfully");
-					location.reload();
+					//location.reload();
 				},
 				400: function(){
 					alert("Delete failed");
@@ -108,6 +103,11 @@ $(".delete").click(function(e){
 			}
 		});
 	}
+});
+
+$(".edit").click(function(e){
+	var id = $(this).parent().parent().attr("id");
+	window.location("/admin/team/edit/" + id);
 });
 
 function decodeHtml(html) {

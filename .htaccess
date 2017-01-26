@@ -17,6 +17,7 @@ RewriteRule ^admin/login/?$ /admin/login.php [NC,L]
 RewriteRule ^admin/news/?$ /admin/news.php [NC,L]
 RewriteRule ^admin/history/?$ /admin/history.php [NC,L]
 RewriteRule ^admin/team/new/?$ /admin/teamNew.php [NC,L]
+RewriteRule ^admin/team/edit/([0-9]+)/?$ /admin/teamEdit.php?id=$1 [NC,L]
 RewriteRule ^admin/team/?$ /admin/team.php [NC,L]
 RewriteRule ^admin/misc/?$ /admin/misc.php [NC,L]
 

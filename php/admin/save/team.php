@@ -15,38 +15,16 @@
 	
 	$json = json_decode(utf8_encode($_POST['json']), true);
 	if (json_last_error() != 0){
-		destroy(501);
+		destroy(400);
 	}
-	if ($_POST['type'] == 'team'){
-		$qry = "SELECT * FROM members";
+	if ($_POST['type'] == 'edit'){
+		$qry = "UPDATE members SET " 
+			. "name=\"" . urldecode($json[0]['name']) . "\", "
+			. "title=\"" . urldecode($json[0]['title']) . "\", "
+			. "img=\"" . urldecode($json[0]['img']) . "\", "
+			. "bio=\"" . urldecode($json[0]['bio']) . "\" "
+			. "WHERE id=" . $json[0]['id'];
 		$qry = $conn->query($qry);
-		$count = $qry->num_rows;
-		$members = array();
-		if ($count > 0){
-			for ($i = 0; $i < $count; $i++){
-				$row = $qry->fetch_assoc();
-				$members[$i] = array();
-				$members[$i]['pos'] = $row['pos'];
-				$members[$i]['name'] = $row['name'];
-				$members[$i]['img']  = $row['img'];
-				$members[$i]['title']= $row['title'];
-				$members[$i]['bio']  = $row['bio'];
-			}
-		}
-
-		$qry = "TRUNCATE TABLE members";
-		$qry = $conn->query($qry);
-		insertMembers($json);
-
-		//check that row count is still the same
-		$qry = "SELECT id FROM members";
-		$qry = $conn->query($qry);
-		if ($qry->num_rows != $count){
-			$qry = "TRUNCATE TABLE members";
-			$qry = $conn->query($qry);
-			insertMembers($members);
-			destroy(501);
-		}
 	//else add new
 	} else {
 		$qry = "INSERT INTO members (name, title, img, bio) "
@@ -57,22 +35,6 @@
 				 . urldecode($json[0]['bio'])
 			 . "\")";
 		$qry = $conn->query($qry);
-	}
-
-	function insertMembers($members){
-		global $conn;
-
-		foreach($members as $result){
-			$qry = "INSERT INTO members "
-				 . "VALUES("
-					 . urldecode($result['pos']) . ",\""
-					 . urldecode($result['name']) . "\",\"" 
-					 . urldecode($result['title']) . "\",\""
-					 . urldecode($result['img']) . "\",\"" 
-					 . urldecode($result['bio'])
-				 . "\")";
-			$qry = $conn->query($qry);
-		}
 	}
 	
 	//kill script with http response code
